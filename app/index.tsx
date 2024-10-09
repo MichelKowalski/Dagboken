@@ -20,7 +20,7 @@ export default function HomeScreen() {
         component={StartScreen}
         options={{
           title: "HAVE A NOTE",
-          headerStyle: { backgroundColor: "pink" },
+          headerStyle: { backgroundColor: "lightblue" },
           //headerRight: () => <Button title="Info" />,
         }}
       />

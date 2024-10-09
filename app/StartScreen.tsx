@@ -6,153 +6,80 @@ import {
   Pressable,
   Button,
 } from "react-native";
+import AddNewNote from "./AddNewNote";
+import { useState } from "react";
 
 export default function StartScreen({ navigation }: any) {
+  const [myNotes, setMyNotes] = useState("");
+
+  function addCategory() {
+    if (myNotes) {
+      setMyNotes("");
+    }
+  }
   return (
-    <SafeAreaView style={{ backgroundColor: "lightgrey" }}>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+    <SafeAreaView style={{}}>
+      <View style={niceStyle.safeAreaViewStyle}>
         <Text style={niceStyle.nicetext}>CATEGORIES</Text>
 
-        <View
-          style={{
-            alignItems: "flex-end",
-            padding: 6,
-            margin: 2,
-            flex: 1,
-            justifyContent: "center",
-          }}
-        >
+        <View style={niceStyle.titleStyle}>
           <Text>
             <Button
               title="+"
               onPress={() => {
-                navigation.navigate("AddNewNote", { fruit: "banan" });
+                navigation.navigate("AddNewNote", { fruit: "HEEEEEEEj" });
               }}
             />
           </Text>
         </View>
       </View>
-      <View style={{ backgroundColor: "gold", height: 1.5, padding: 2 }}></View>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          height: 60,
-          backgroundColor: "yellow",
-          justifyContent: "center",
-        }}
-      >
-        <Text>
+      <View style={{ borderBottomWidth: 2, borderColor: "gold" }}></View>
+      <View style={niceStyle.stylingCategorysView}>
+        <Text style={niceStyle.nicetext}>
           <Button title="HOME" onPress={() => {}} />
         </Text>
-        <View
-          style={{
-            alignItems: "flex-end",
-            flex: 1,
-          }}
-        >
-          <Text style={niceStyle.nicetext}>
-            <Button title="WORK" onPress={() => {}} />
-          </Text>
-        </View>
       </View>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          height: 60,
-          backgroundColor: "yellow",
-          justifyContent: "center",
-        }}
-      >
+      <View style={niceStyle.stylingCategorysView}>
+        <Text style={niceStyle.nicetext}>
+          <Button title="WORK" onPress={() => {}} />
+        </Text>
+      </View>
+      <View style={niceStyle.stylingCategorysView}>
         <Text style={niceStyle.nicetext}>
           <Button title="FITNESS" onPress={() => {}} />
         </Text>
-        <View
-          style={{
-            alignItems: "flex-end",
-            flex: 1,
-          }}
-        >
-          <Text style={niceStyle.nicetext}>
-            <Button title="HEALTH" onPress={() => {}} />
-          </Text>
-        </View>
       </View>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          height: 60,
-          backgroundColor: "yellow",
-          justifyContent: "center",
-        }}
-      >
+      <View style={niceStyle.stylingCategorysView}>
+        <Text style={niceStyle.nicetext}>
+          <Button title="HEALTH" onPress={() => {}} />
+        </Text>
+      </View>
+
+      <View style={niceStyle.stylingCategorysView}>
         <Text style={niceStyle.nicetext}>
           <Button title="EDUCATION" onPress={() => {}} />
         </Text>
-        <View
-          style={{
-            alignItems: "flex-end",
-            flex: 1,
-          }}
-        >
-          <Text style={niceStyle.nicetext}>
-            <Button title="SOCIAL" onPress={() => {}} />
-          </Text>
-        </View>
       </View>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          height: 60,
-          backgroundColor: "yellow",
-          justifyContent: "center",
-        }}
-      >
+      <View style={niceStyle.stylingCategorysView}>
+        <Text style={niceStyle.nicetext}>
+          <Button title="SOCIAL" onPress={() => {}} />
+        </Text>
+      </View>
+
+      <View style={niceStyle.stylingCategorysView}>
         <Text style={niceStyle.nicetext}>
           <Button title="TRAVEL" onPress={() => {}} />
         </Text>
-        <View
-          style={{
-            alignItems: "flex-end",
-            flex: 1,
-          }}
-        >
-          <Text style={niceStyle.nicetext}>
-            <Button title="SHOPPING" onPress={() => {}} />
-          </Text>
-        </View>
       </View>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          height: 60,
-          backgroundColor: "yellow",
-          justifyContent: "center",
-        }}
-      >
+      <View style={niceStyle.stylingCategorysView}>
         <Text style={niceStyle.nicetext}>
-          <Button title="FINANCE" onPress={() => {}} />
+          <Button
+            title={myNotes}
+            onPress={() => {
+              addCategory();
+            }}
+          />
         </Text>
-        <View
-          style={{
-            alignItems: "flex-end",
-            flex: 1,
-          }}
-        >
-          <Text style={niceStyle.nicetext}>
-            <Button title="LIFESTYLE" onPress={() => {}} />
-          </Text>
-        </View>
       </View>
     </SafeAreaView>
   );
@@ -161,7 +88,24 @@ export default function StartScreen({ navigation }: any) {
 export const niceStyle = StyleSheet.create({
   nicetext: {
     fontSize: 18,
-    color: "black",
     padding: 6,
+    margin: 2,
+  },
+  safeAreaViewStyle: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  titleStyle: {
+    alignItems: "flex-end",
+    padding: 6,
+    margin: 2,
+    flex: 1,
+    justifyContent: "center",
+  },
+  stylingCategorysView: {
+    backgroundColor: "white",
+    borderBottomWidth: 1,
+    alignItems: "flex-start",
   },
 });
